@@ -71,7 +71,12 @@
 }
 
 .search_sort_wrapper{
-  float: left;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 4rem;
 }
 
 .search_sort_wrapper label {
@@ -80,7 +85,7 @@
 }
 
 #search_input {
-  height: 1.5rem;
+  height: 2rem;
   width: 15rem;
   
 }
@@ -89,4 +94,38 @@
   background-color: black;
   height: 4rem;
   padding: 30px 20px;
+}
+
+.categories_wrapper {
+  background-color: rgb(226, 218, 218);
+  height: 3rem;
+  padding-right: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category_option {
+  height: 70%;
+  width: 8rem;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.icon_container {
+  color: beige;
+}
+
+.pagination{
+  display: ruby;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin-top: 1rem;
+}
+
+.pageNum{
+  padding: 0.5rem;
+  font-size: 1.2rem;
 }
