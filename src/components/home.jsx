@@ -2,18 +2,22 @@ import { useEffect, useState } from "react"
 import basicOps from "./utility/basicOps";
 import Categories from "./categories";
 import PRODUCTS from "./products";
-import { ArrowCircleDown, ArrowCircleLeftOutlined, ArrowCircleRightOutlined, ArrowCircleUp, KeyboardArrowLeftOutlined, KeyboardArrowRightOutlined } from "@mui/icons-material";
+import { ArrowCircleDown, ArrowCircleUp, KeyboardArrowLeftOutlined, KeyboardArrowRightOutlined } from "@mui/icons-material";
+import { usePaginationContext } from "./context/PaginationContext";
+import { useCategoryContext } from "./context/CategoryContext";
 
 function HOME() {
 
     let [products, setProducts] = useState(null)
     let [categories, setCategories] = useState([])
-    let [currCategory, setCurrCategory] = useState("All Categories")
+    // let [currCategory, setCurrCategory] = useState("All Categories")
     let [searchInput, setsearchInput] = useState('')
     let [sortProduct, setSortProduct] = useState(0)
 
-    let [pageSz, setPageSz] = useState(4);
-    let [pageNo, setPageNo] = useState(1);
+
+    const {currCategory, setCurrCategory} = useCategoryContext();
+
+    const {pageSz, setPageSz, pageNo, setPageNo} = usePaginationContext();
 
     useEffect(() => {
         (async function() {
@@ -44,15 +48,27 @@ function HOME() {
             <header className="nav_wrapper">
                 <div className="search_sort_wrapper">
                     <label htmlFor="search_input">Search</label>
-                    <input type="text" name="search_input" id="search_input" value={searchInput} onChange={(e) => setsearchInput(e.target.value)} />
+                    <input type="text" name="search_input" id="search_input" value={searchInput} 
+                     onChange={(e) => { 
+                            setsearchInput(e.target.value);
+                            setPageNo(1);
+                            setSortProduct(1);
+                        }
+                     } />
                     <div className="icon_container">
-                        <ArrowCircleDown onClick={() => setSortProduct(-1)} />
-                        <ArrowCircleUp onClick={() => setSortProduct(1)} />
+                        <ArrowCircleDown onClick={() => {
+                            setSortProduct(-1);
+                            setPageNo(1);
+                        }} />
+                        <ArrowCircleUp onClick={() => {
+                            setSortProduct(1);
+                            setPageNo(1);
+                        }} />
                     </div>
                 </div>
 
                 <div className="categories_wrapper">
-                    <Categories categories={categories} setCurrCategory={setCurrCategory} />
+                    <Categories categories={categories} setCurrCategory={setCurrCategory} setPageNo={setPageNo} />
                 </div>
             </header>
             <main className="product_wrapper">
@@ -65,7 +81,8 @@ function HOME() {
                         }
                         setPageNo((pageNo)=>pageNo-1)
                     }
-                }>
+                }
+                disabled={pageNo==1 ? true : false}>
                     <KeyboardArrowLeftOutlined />
                 </button>
                 <div className="pageNum">{pageNo}</div>
@@ -75,7 +92,8 @@ function HOME() {
                         }
                         setPageNo((pageNo)=>pageNo+1)
                     }
-                }>
+                }
+                disabled={pageNo==totalPgs ? true : false}>
                     <KeyboardArrowRightOutlined />
                 </button>
             </div>

@@ -90,12 +90,6 @@
   
 }
 
-.nav_wrapper {
-  background-color: black;
-  height: 4rem;
-  padding: 30px 20px;
-}
-
 .categories_wrapper {
   background-color: rgb(226, 218, 218);
   height: 3rem;
@@ -128,4 +122,16 @@
 .pageNum{
   padding: 0.5rem;
   font-size: 1.2rem;
+}
+
+.nav_wrapper {
+  background-color: black;
+  height: 7rem;
+}
+
+.navbar{
+  display: flex;
+    height: 3rem;
+    justify-content: space-evenly;
+    align-items: center;
 }
