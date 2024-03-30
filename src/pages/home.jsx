@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import basicOps from "./utility/basicOps";
-import Categories from "./categories";
-import PRODUCTS from "./products";
+import basicOps from "../utility/basicOps";
+import Categories from "../components/categories";
+import PRODUCTS from "../components/products";
 import { ArrowCircleDown, ArrowCircleUp, KeyboardArrowLeftOutlined, KeyboardArrowRightOutlined } from "@mui/icons-material";
-import { usePaginationContext } from "./context/PaginationContext";
-import { useCategoryContext } from "./context/CategoryContext";
+import { usePaginationContext } from "../context/PaginationContext";
+import { useCategoryContext } from "../context/CategoryContext";
 
 function HOME() {
 
@@ -47,8 +47,8 @@ function HOME() {
         <>
             <header className="nav_wrapper">
                 <div className="search_sort_wrapper">
-                    <label htmlFor="search_input">Search</label>
                     <input type="text" name="search_input" id="search_input" value={searchInput} 
+                     placeholder="Search"
                      onChange={(e) => { 
                             setsearchInput(e.target.value);
                             setPageNo(1);

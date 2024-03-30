@@ -1,4 +1,4 @@
-import { usePaginationContext } from "./context/PaginationContext";
+import { usePaginationContext } from "../context/PaginationContext";
 
 function Categories(props) {
     let {categories, setCurrCategory} = props;
