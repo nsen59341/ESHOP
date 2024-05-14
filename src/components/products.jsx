@@ -30,7 +30,7 @@ function PRODUCTS(props) {
                             <img src={product.image} alt="" className='product_image'></img>
                             <div className='product_meta'>
                                 <p className="product_title">Title: {product.title}</p>
-                                <p className="price">Price: {product.price}</p>
+                                <p className="price">Price: ${product.price}</p>
                             </div>
                             <div className="add_to_cart_container">
                                 <IndeterminateCheckBox onClick={() => {handleDecrement(product)}} />

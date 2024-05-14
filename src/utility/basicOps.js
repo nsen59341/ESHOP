@@ -25,20 +25,6 @@ function searchTerm(products,searchInput, delay=500) {
     return modifiedProdList;
 }
 
-function debounce(cb, delay=500) {
-    let timeOutId = null;
-    return function(...args){
-        if(timeOutId){
-            clearTimeout(timeOutId);
-        }
-        else{
-            timeOutId = setTimeout(() => {
-                cb(...args);
-                timeOutId = null;
-            }, delay);
-        }
-    }
-}
 
 function categorizedProduct(modifiedProdList, currCategory) {
     if(currCategory.localeCompare("All Categories")!=0){

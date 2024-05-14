@@ -3,7 +3,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import NAVBAR from './components/navbar'
-import User from './pages/users'
 import Cart from './pages/cart'
 import HOME from './pages/home'
 import PageNotFound from './pages/notfound'
@@ -20,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HOME />}></Route>
         <Route path="/home" element={<Navigate to="/" />}></Route>
-        <Route path="/user" element={<User />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>

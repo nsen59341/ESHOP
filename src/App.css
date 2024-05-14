@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 
@@ -86,8 +86,8 @@
 
 #search_input {
   height: 2rem;
-  width: 15rem;
-  
+  width: 15rem; 
+  padding-left: 10px;
 }
 
 .categories_wrapper {
@@ -95,7 +95,7 @@
   height: 3rem;
   padding-right: 3rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
 }
@@ -109,6 +109,8 @@
 
 .icon_container {
   color: beige;
+  cursor: pointer;
+  margin-bottom: -4px;
 }
 
 .pagination_container{
@@ -116,7 +118,7 @@
   justify-content: center;
   align-items: center;
   height: 3rem;
-  margin-top: 2.5rem;
+  margin: 2.5rem;
 }
 
 .pageNum{
@@ -134,6 +136,8 @@
   height: 3rem;
   justify-content: space-evenly;
   align-items: center;
+  background-color: rgb(226, 218, 218);
+  color: #000;
 }
 .cart_container {
   position: relative;
@@ -157,4 +161,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 100px;
+  color: #000;
 }

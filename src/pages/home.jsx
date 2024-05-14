@@ -44,6 +44,7 @@ function HOME() {
     let modifiedProdList = object.modifiedProdList != null ? object.modifiedProdList : [];
 
     return (
+        (products==null) ? <h2>Products are loading... </h2>:
         <>
             <header className="nav_wrapper">
                 <div className="search_sort_wrapper">
